@@ -41,7 +41,7 @@ class Main:
                         elif event.key == pg.K_g:  # Game Transition;
                             self.game_start = True
                             self.main_start = False
-                        elif event.key == pg.K_e:
+                        elif event.key == pg.K_e:  # Editor Transition;
                             self.editor_start = True
                             self.main_start = False
                 self.SCREEN.blit(self.main_screen, (0, 0))
