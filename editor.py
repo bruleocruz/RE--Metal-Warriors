@@ -7,9 +7,8 @@ class Editor:
         self.main = main
         self.editor_screen = pg.Surface((800, 600))
     
-    def run(self):
-        self.editor_screen.fill('Blue')
-        for event in pg.event.get():
+    def editor_events(self):
+         for event in pg.event.get():
             if event.type == pg.KEYDOWN:
                     if event.key == pg.K_m:  # Main Transition;
                         self.main.main_start = True
@@ -19,4 +18,8 @@ class Editor:
                          self.main.editor_start = False
                     elif event.key == pg.K_ESCAPE:
                          self.main.playing = False
+    
+    def run(self):
+        self.editor_screen.fill('Blue')
+        self.editor_events()
         self.SCREEN.blit(self.editor_screen, (0, 0))

@@ -25,12 +25,9 @@ class Main:
         self.main_start = True
         self.game_start = False
         self.editor_start = False
-
-    def run(self):
-        while self.playing:
-            if self.main_start:
-                self.main_screen.fill('red')
-                for event in pg.event.get():
+    
+    def main_events(self):
+        for event in pg.event.get():
                     if event.type == pg.QUIT:
                         self.main_start = False
                         self.playing = False
@@ -44,6 +41,12 @@ class Main:
                         elif event.key == pg.K_e:  # Editor Transition;
                             self.editor_start = True
                             self.main_start = False
+
+    def run(self):
+        while self.playing:
+            if self.main_start:
+                self.main_screen.fill('red')
+                self.main_events()
                 self.SCREEN.blit(self.main_screen, (0, 0))
             
             if self.game_start:
