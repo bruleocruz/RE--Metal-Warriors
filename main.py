@@ -56,9 +56,11 @@ class Main:
 
             if self.editor_start:
                 self.editor.run()
+                pg.display.update()
 
             pg.display.update()
             self.fps.tick(60)
+            print(self.fps.get_fps())
 
 main = Main(SCREEN)
 main.run()

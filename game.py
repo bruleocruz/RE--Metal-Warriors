@@ -1,7 +1,4 @@
 import pygame as pg
-from config import *
-from tiles import Tile
-
 
 class Game:
     def __init__(self, main):
